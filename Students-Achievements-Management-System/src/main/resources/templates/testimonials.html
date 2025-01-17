@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .student-box {
+            display: flex;
+            padding: 20px;
+            margin: 10px;
+            background: rgba(255, 255, 255, 0.8); /* Slight transparent white background */
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow for each box */
+            transition: box-shadow 0.3s ease-in-out; /* Smooth transition for shadow on hover */
+        }
+
+        .student-box:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+        }
+
+        .student-photo {
+            width: 1.5cm; /* 1.5 cm width */
+            height: 1.5cm; /* 1.5 cm height */
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .student-name {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .student-message {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .syam {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        
+         body{
+        	margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (optional, ensure it works in your app) -->
+    <div th:replace="navbar :: navbar"></div>
+
+    <!-- Heading -->
+    <div class="syam">
+    <br><br>
+        <h2 style="font-family: Forte; font-size: 30px;">Alumni </h2>
+    </div> 
+
+    <!-- Student Message Grid -->
+    <div class="grid-container">
+        <!-- Student 1 -->
+        <div class="student-box">
+            <img th:src="@{/images/idiot.jpg}" alt="Syam Kumar" class="student-photo">
+            <div>
+                <div class="student-name">Syam Kumar</div>
+                <div class="student-message">
+                    "In every student life, there is a best part of their education, for me, it's my college. Aditya Engineering College is well disciplined, with excellent infrastructure and security."
+                </div>
+            </div>
+        </div>
+
+        <!-- Student 2 -->
+        <div class="student-box">
+            <img th:src="@{/images/idiot.jpg}" alt="Kesava" class="student-photo">
+            <div>
+                <div class="student-name">Kesava</div>
+                <div class="student-message">
+                    "Aditya has always felt like home since my 7th class, not only enriching my knowledge but also providing a friendly environment, well-trained staff, and excellent discipline."
+                </div>
+            </div>
+        </div>
+
+        <!-- Student 3 -->
+        <div class="student-box">
+            <img th:src="@{/images/idiot.jpg}" alt="Tharak" class="student-photo">
+            <div>
+                <div class="student-name">Tharak</div>
+                <div class="student-message">
+                    "The campus is neat, friendly, with a well-organized library, and offers many opportunities for extracurricular activities. I found my passion through inter-college events."
+                </div>
+            </div>
+        </div>
+
+        <!-- Student 4 -->
+        <div class="student-box">
+            <img th:src="@{/images/idiot.jpg}" alt="Pramod" class="student-photo">
+            <div>
+                <div class="student-name">Pramod</div>
+                <div class="student-message">
+                    "AEC provided me with great exposure through extracurricular activities and hackathons, enhancing my skills and helping me grow personally and professionally."
+                </div>
+            </div>
+        </div>
+
+        <!-- Student 5 -->
+        <div class="student-box">
+            <img th:src="@{/images/idiot.jpg}" alt="Manikanta" class="student-photo">
+            <div>
+                <div class="student-name">Manikanta</div>
+                <div class="student-message">
+                    "I’ve gained so much through AEC’s infrastructure, and the faculty has been very supportive throughout my academic and extracurricular journey."
+                </div>
+            </div>
+        </div>
+
+        <!-- Student 6 -->
+        <div class="student-box">
+            <img th:src="@{/images/idiot.jpg}" alt="Sagar" class="student-photo">
+            <div>
+                <div class="student-name">Sagar</div>
+                <div class="student-message">
+                    "The college is a perfect place to balance academics and extracurricular activities. The training provided helped me secure placement opportunities."
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

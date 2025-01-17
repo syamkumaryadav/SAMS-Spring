@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Appreciation Section */
+        .appreciation-box {
+            background: linear-gradient(45deg, rgba(106, 17, 203, 0.8), rgba(37, 117, 252, 0.8)); /* Transparent Gradient Background */
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 40px; /* Extra margin to separate it from the grid */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        .appreciation-box h2 {
+            font-family: 'Forte', cursive;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .appreciation-box p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Grid Styling */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .grid-item {
+            background: linear-gradient(45deg, #ff6f61, #d2a1d6);
+            padding: 20px;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item h3 {
+            font-family: 'Forte', cursive;
+            font-size: 24px;
+        }
+
+        .grid-item p {
+            font-size: 16px;
+        }
+
+        /* Styling for the carousel section */
+        #carouselExample {
+            margin-bottom: 30px;
+        }
+       body{
+        	margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (optional, ensure it works in your app) -->
+    <div th:replace="navbar :: navbar"></div>
+
+    <!-- Carousel -->
+    <div class="carousel slide" data-bs-ride="carousel" id="carouselExample">
+        <div class="carousel-inner">
+            <!-- First carousel item -->
+            <div class="carousel-item ">
+               
+                <img th:src="@{/images/banners1.jpg}" class="d-block w-100" height="370" alt="Banner 1">
+            </div>
+            <br>
+                <h1 class="text-center mb-4 text-danger" style="font-family: Forte; font-size: 30px;">Students Achievement
+						Management System</h1>
+            
+            <!-- Second carousel item -->
+            <div class="carousel-item active">
+                <img th:src="@{/images/banners2.jpg}" class="d-block w-100" height="370" alt="Banner 2">
+            </div>
+            <!-- Additional carousel items -->
+            <div class="carousel-item ">
+                <img th:src="@{/images/banners3.jpg}" class="d-block w-100" height="370" alt="Banner 3">
+            </div>
+            <div class="carousel-item ">
+                <img th:src="@{/images/banners4.jpg}" class="d-block w-100" height="370" alt="Banner 4">
+            </div>
+            <div class="carousel-item ">
+                <img th:src="@{/images/banners5.jpg}" class="d-block w-100" height="370" alt="Banner 5">
+            </div>
+        </div>
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+
+    <!-- Appreciation Section for Students -->
+    <div class="appreciation-box">
+        <h2>Celebrating Our Students' Values</h2>
+        <p>At our college, we believe that success goes beyond academics. It’s about embracing values that shape strong individuals. Discipline, hard work, consistency, and respect for others and elders are the traits we cherish most in our students.</p>
+        <p>These values are the foundation upon which we build leaders of tomorrow. We celebrate and appreciate every student who exemplifies these qualities in their everyday lives.</p>
+    </div>
+
+    
+
+    <!-- Grid for Categories -->
+    <div class="grid-container">
+        <!-- Sports Box -->
+        <div class="grid-item">
+            <h3>Sports</h3>
+            <p>Explore the achievements and contributions of our athletes in various sports events and tournaments.</p>
+        </div>
+
+        <!-- Academics Box -->
+        <div class="grid-item">
+            <h3>Academics</h3>
+            <p>Recognizing academic excellence and achievements in various subjects and research fields.</p>
+        </div>
+
+        <!-- Cultural Box -->
+        <div class="grid-item">
+            <h3>Culturals</h3>
+            <p>Celebrating the cultural talents and contributions made by our students in music, dance, and drama.</p>
+        </div>
+
+        <!-- Literary Box -->
+        <div class="grid-item">
+            <h3>Literary</h3>
+            <p>Showcasing literary achievements in writing, poetry, and public speaking competitions.</p>
+        </div>
+
+        <!-- NSS Box -->
+        <div class="grid-item">
+            <h3>NSS</h3>
+            <p>Highlighting the contributions of students in social service and national service initiatives.</p>
+        </div>
+
+        <!-- NCC Box -->
+        <div class="grid-item">
+            <h3>NCC</h3>
+            <p>Honoring the dedication and achievements of students in the National Cadet Corps.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Achievement Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+		 body{
+        	margin-top: 65px;
+        }
+	</style>
+</head>
+<body>
+<div th:replace="navbar :: navbar"></div>
+<div class="container mt-4">
+    <h1 class="text-center mb-4" style="font-family: Forte; font-size: 30px;">Student Achievement Form</h1>
+    
+    <!-- Form for uploading student achievements -->
+    <form action="/students/upload" method="post" enctype="multipart/form-data" class="mb-5 needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="branch" class="form-label">Branch</label>
+            <select class="form-select" id="branch" name="branch" required>
+                <option value="" disabled selected>-- Branch --</option>
+                <option value="AIML">AIML</option>
+                 <option value="CIVIL">CIVIL</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                <option value="IT">IT</option>
+                <option value="IET">IET</option>
+                <option value="MECH">MECH</option>
+                <option value="ALL">ALL</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="registrationNo" class="form-label">Registration No</label>
+            <input type="text" class="form-control" id="registrationNo" name="registrationNo" placeholder="Enter registration number" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="achievementType" class="form-label">Achievement Type</label>
+            <select class="form-select" id="achievementType" name="achievementType" required>
+                <option value="" disabled selected>-- Achievement Type --</option>
+                <option value="Academic">Academic</option>
+                <option value="Certifications">Certifications</option>
+                 <option value="Cultural">Cultural</option>
+                  <option value="Literary">Literary</option>   
+                <option value="Sports">Sports</option>
+                <option value="NSS">NSS</option>
+                <option value="NCC">NCC</option>                           
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="achievementDetails" class="form-label">Achievement Details</label>
+            <textarea class="form-control" id="achievementDetails" name="achievementDetails" rows="3" placeholder="Provide details of the achievement" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="prize" class="form-label">Prize</label>
+            <select class="form-select" id="prize" name="prize" required>
+                <option value="" disabled selected>-- Prize --</option>
+                <option value="First">First</option>
+                <option value="Second">Second</option>
+                <option value="Third">Third</option>
+                <option value="Fourth">Fourth</option>
+                <option value="Fifth">Fifth</option>
+                <option value="Certifications">Certifications</option>
+                <option value="Academics">Academics</option>
+                <option value="Participation">Participation</option>
+                <option value="Others">Others</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="event" class="form-label">Event</label>
+            <input type="text" class="form-control" id="event" name="event" placeholder="Conducting College name, where is the Location...etc   eg: Bapatla Engineering College, Bapatla   BECTAGON-2K23" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="academicYear" class="form-label">Academic Year</label>
+            <select class="form-select" id="academicYear" name="academicYear" required>
+                <option value="" disabled selected>Select Academic Year</option>
+               <option value="2021-22">2021-22</option>
+                <option value="2022-23">2022-23</option>
+                <option value="2023-24">2023-24</option>
+                <option value="2024-25">2024-25</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="achievementDate" class="form-label">Achievement Date</label>
+            <input type="date" class="form-control" id="achievementDate" name="achievementDate" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="file" class="form-label">Upload Photo/Document</label>
+            <input type="file" class="form-control" id="file" name="file" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <!-- Search form -->
+    <form action="/students/adminSearch" method="get" class="mb-4">
+        <div class="input-group">
+            <input type="text" class="form-control" name="name" placeholder="Search by Name">
+            <input type="text" class="form-control" name="registrationNo" placeholder="Search by Registration No">
+            <select class="form-select" name="academicYear">
+                <option value="">All Years</option>
+                <option value="2021-22">2021-22</option>
+                <option value="2022-23">2022-23</option>
+                <option value="2023-24">2023-24</option>
+                <option value="2024-25">2024-25</option>
+            </select>
+            <select class="form-select" name="achievementType">
+                <option value="">--Achievement Type--</option>
+                <option value="Academic">Academic</option>
+                <option value="Certifications">Certifications</option>
+                 <option value="Cultural">Cultural</option>
+                  <option value="Literary">Literary</option>   
+                <option value="Sports">Sports</option>
+                <option value="NSS">NSS</option>
+                <option value="NCC">NCC</option>                           
+                <option value="Other">Other</option>
+            </select>
+            <button type="submit" class="btn btn-secondary">Search</button>
+        </div>
+    </form>
+	
+    <!-- Students table -->
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Branch</th>
+                <th>Registration No</th>
+                <th>Achievement</th>
+                <th>Achievement Details</th>
+                <th>Prize</th>
+                <th>Event</th>
+                <th>Year</th>
+                <th>Date</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.studentId}"></td>
+                <td th:text="${student.name}"></td>
+                <td th:text="${student.branch}"></td>
+                <td th:text="${student.registrationNo}"></td>
+                <td th:text="${student.achievementType}"></td>
+                <td th:text="${student.achievementDetails}"></td>
+                <td th:text="${student.prize}"></td>
+                <td th:text="${student.event}"></td>
+                <td th:text="${student.academicYear}"></td>
+                <td th:text="${student.achievementDate}"></td>
+                <td>
+                    <img th:if="${student.fileName != null}" 
+                         th:src="'data:' + ${student.fileType} + ';base64,' + ${student.fileName}" 
+                         alt="Image" class="img-thumbnail" style="width: 100px; height: auto;">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
