@@ -37,14 +37,14 @@
     </style>
 </head>
 <body>
-<div th:replace="navbar :: navbar"></div>
+<div th:replace="navbar :: navbar"></div><!-- directive tells Thymeleaf to include the navbar fragment -->
 <div class="container mt-4">
     <h1 class="text-center mb-4" style="font-family: Forte; font-size: 30px;">Achievements Update Form</h1>
 
-    <!-- Form for uploading student achievements -->
-    <form action="/students/update" method="post" enctype="multipart/form-data" class="mb-5 needs-validation" novalidate>
+    <!-- this Form for uploading student achievements --> <!-- enctype="multipart/form-data" is used to support file uploads. -->
+    <form action="/students/update" method="post" enctype="multipart/form-data" class="mb-5 needs-validation" novalidate><!-- novalidate for remove required functionality(validation) --> 
         <input type="hidden" name="studentId" th:value="${student.studentId}">
-        
+        <!-- A hidden field holds the studentId for identifying the record to be updated. -->
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Enter student name" th:value="${student.name}" required>
@@ -54,14 +54,14 @@
             <label for="branch" class="form-label">Branch</label>
             <select class="form-select" id="branch" name="branch" required>
                 <option value="" disabled selected>-- Select Branch --</option>
-                                <option value="AIML" th:selected="${student.branch == 'AIML'}">AIML</option>               
-                                <option value="CIVIL" th:selected="${student.branch == 'CIVIL'}">CIVIL</option>               
-                 <option value="CSE" th:selected="${student.branch == 'CSE'}">CSE</option>
+<!--       The th:selected attribute dynamically sets the selected option based on the value of student.branch. -->                <option value="AIML" th:selected="${student.branch == 'AIML'}">AIML</option>               
+                <option value="CIVIL" th:selected="${student.branch == 'CIVIL'}">CIVIL</option>               
+                <option value="CSE" th:selected="${student.branch == 'CSE'}">CSE</option>
                 <option value="ECE" th:selected="${student.branch == 'ECE'}">ECE</option>
                 <option value="EEE" th:selected="${student.branch == 'EEE'}">EEE</option>
                 <option value="IT" th:selected="${student.branch == 'IT'}">IT</option>
                 <option value="IET" th:selected="${student.branch == 'IET'}">IET</option>
-               <option value="MECH" th:selected="${student.branch == 'MECH'}">MECH</option>
+                <option value="MECH" th:selected="${student.branch == 'MECH'}">MECH</option>
                 <option value="ALL" th:selected="${student.branch == 'ALL'}">ALL</option>
             </select>
         </div>
@@ -94,6 +94,7 @@
         <div class="mb-3">
             <label for="prize" class="form-label">Prize</label>
             <select class="form-select" id="prize" name="prize" required>
+                <!-- disabled====The option is only for display purposes -->
                 <option value="" disabled selected>-- Select Prize --</option>
                 <option value="First" th:selected="${student.prize == 'First'}">First</option>
                 <option value="Second" th:selected="${student.prize == 'Second'}">Second</option>

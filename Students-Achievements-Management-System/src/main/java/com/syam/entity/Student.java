@@ -48,8 +48,13 @@ public class Student {
     private String fileName;
     private String fileType;
 
-    @Lob
+    @Lob	// Stands for Large Object.
     private byte[] data;
-   
-
+   // Indicates that the field should be mapped to a database column capable of storing large amounts of data.   
+    
+	/* 
+	   BLOB (Binary Large Object): For byte[], Byte[].
+	   CLOB (Character Large Object): For String, char[].
+	   
+	   */
 } 

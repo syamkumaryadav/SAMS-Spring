@@ -10,7 +10,7 @@
 	</style>
 </head>
 <body>
-    <div th:replace="navbar :: navbar"></div>
+    <div th:replace="navbar :: navbar"></div><!-- directive tells Thymeleaf to include the navbar fragment -->
     <div class="container mt-4">
     <h1 class="text-center mb-4" style="font-family: Forte; font-size: 30px;">Achiever Records</h1>
 
@@ -20,14 +20,14 @@
                 <input type="text" class="form-control" name="name" placeholder="Search by Name">
                 <input type="text" class="form-control" name="registrationNo" placeholder="Search by Registration No">
                 <select class="form-select" name="academicYear">
-                    <option value="">All Years</option>
-                    <option value="2021-22">2021-22</option>
-                <option value="2022-23">2022-23</option>
-                <option value="2023-24">2023-24</option>
-                <option value="2024-25">2024-25</option>
+	                <option value="">All Years</option>
+	                <option value="2021-22">2021-22</option>
+	                <option value="2022-23">2022-23</option>
+	                <option value="2023-24">2023-24</option>
+	                <option value="2024-25">2024-25</option>
                 </select>
                 <select class="form-select" name="achievementType">
-                    <option value="">--Achievement Type--</option>
+                    <option value=""> AllAchievement </option>
                     <option value="Academic">Academic</option>
                  <option value="Cultural">Cultural</option>
                   <option value="Literary">Literary</option>   
@@ -53,12 +53,12 @@
                 <tbody>
                     <tr>
                         <td>First</td>
-                        <td th:text="${summaryCounts.first}">0</td>
+                        <td th:text="${summaryCounts.first}">0</td><!-- summaryCounts it maps to controller search method for prize count -->
                     </tr>
                     <tr>
                         <td>Second</td>
                         <td th:text="${summaryCounts.second}">0</td>
-                    </tr>
+                    </tr>	<!-- summaryCounts.put(prize, summaryCounts.getOrDefault(prize, 0L) + 1); -->
                     <tr>
                         <td>Third</td>
                         <td th:text="${summaryCounts.third}">0</td>

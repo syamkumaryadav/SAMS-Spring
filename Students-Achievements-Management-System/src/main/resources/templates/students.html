@@ -10,27 +10,27 @@
 	</style>
 </head>
 <body>
-<div th:replace="navbar :: navbar"></div>
-<div class="container mt-4">
+<div th:replace="navbar :: navbar"></div><!-- directive tells Thymeleaf to include the navbar fragment -->
+<div class="container mt-4"><!-- proper alignment and padding. -->
     <h1 class="text-center mb-4" style="font-family: Forte; font-size: 30px;">Student Achievement Form</h1>
     
-    <!-- Form for uploading student achievements -->
-    <form action="/students/upload" method="post" enctype="multipart/form-data" class="mb-5 needs-validation" novalidate>
+    <!-- Form for uploading student achievements -->						<!-- novalidate   for remove validations -->
+    <form action="/students/upload" method="post" enctype="multipart/form-data" class="mb-5 needs-validation" >
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
         </div>
 
-        <div class="mb-3">
-            <label for="branch" class="form-label">Branch</label>
+        <div class="mb-3">					<!-- The for attribute's value should match the id of the associated form control. -->
+            <label for="branch" class="form-label">Branch</label><!-- name for backend,  id for frontend(javascript validation or custom usage)  -->
             <select class="form-select" id="branch" name="branch" required>
-                <option value="" disabled selected>-- Branch --</option>
-                <option value="AIML">AIML</option>
+                <option value=""  disabled selected>-- Branch --</option><!-- selected=== for default showing option -->
+                <option value="AIML">AIML</option>		<!-- disabled== for while selecting option then not give this option for selecting -->
                  <option value="CIVIL">CIVIL</option>
                 <option value="CSE">CSE</option>
-                <option value="ECE">ECE</option>
+                <option value="ECE">ECE</option>			<!-- for----=----id -->
                 <option value="EEE">EEE</option>
-                <option value="IT">IT</option>
+                <option value="IT">IT</option>		<!-- value=Specifies the value of an input field.  -->
                 <option value="IET">IET</option>
                 <option value="MECH">MECH</option>
                 <option value="ALL">ALL</option>
@@ -45,11 +45,11 @@
         <div class="mb-3">
             <label for="achievementType" class="form-label">Achievement Type</label>
             <select class="form-select" id="achievementType" name="achievementType" required>
-                <option value="" disabled selected>-- Achievement Type --</option>
-                <option value="Academic">Academic</option>
+                <option value=""  disabled selected>-- Achievement Type --</option><!-- disabled== for while selecting option then not give this option for selecting -->
+                <option value="Academic">Academic</option>		<!-- selected=== for default showing option -->
                 <option value="Certifications">Certifications</option>
-                 <option value="Cultural">Cultural</option>
-                  <option value="Literary">Literary</option>   
+                <option value="Cultural">Cultural</option>
+                <option value="Literary">Literary</option>   
                 <option value="Sports">Sports</option>
                 <option value="NSS">NSS</option>
                 <option value="NCC">NCC</option>                           
@@ -65,8 +65,8 @@
         <div class="mb-3">
             <label for="prize" class="form-label">Prize</label>
             <select class="form-select" id="prize" name="prize" required>
-                <option value="" disabled selected>-- Prize --</option>
-                <option value="First">First</option>
+                <option value=""  disabled selected >-- Prize --</option><!-- selected=== for default showing option -->
+                <option value="First">First</option>		<!-- disabled== for while selecting option then not give this option for selecting -->
                 <option value="Second">Second</option>
                 <option value="Third">Third</option>
                 <option value="Fourth">Fourth</option>
@@ -86,7 +86,7 @@
         <div class="mb-3">
             <label for="academicYear" class="form-label">Academic Year</label>
             <select class="form-select" id="academicYear" name="academicYear" required>
-                <option value="" disabled selected>Select Academic Year</option>
+                <option value="" disabled selected>-- Academic Year --</option>
                <option value="2021-22">2021-22</option>
                 <option value="2022-23">2022-23</option>
                 <option value="2023-24">2023-24</option>
@@ -120,7 +120,7 @@
                 <option value="2024-25">2024-25</option>
             </select>
             <select class="form-select" name="achievementType">
-                <option value="">--Achievement Type--</option>
+                <option value="">All Achievements </option>
                 <option value="Academic">Academic</option>
                 <option value="Certifications">Certifications</option>
                  <option value="Cultural">Cultural</option>
@@ -152,10 +152,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="student : ${students}">
+            <tr th:each="student : ${students}">		<!-- dynamically insert the value from backend-->
                 <td th:text="${student.studentId}"></td>
                 <td th:text="${student.name}"></td>
-                <td th:text="${student.branch}"></td>
+                <td th:text="${student.branch}"></td>		<!--  ${} syntax is used to access variables or data passed from the backend into the view. The $ is part of the Expression Language (EL) -->
                 <td th:text="${student.registrationNo}"></td>
                 <td th:text="${student.achievementType}"></td>
                 <td th:text="${student.achievementDetails}"></td>
